@@ -60,7 +60,12 @@ public class DisplayFile extends HttpServlet {
 		//5. if not null, redirect to the view file page.
 		if(file!=null)
 		{
-			response.sendRedirect("jsp/FileView.jsp?path="+file.getChemin());
+			//5-1. increment the view times of this file
+			file.readOneMoreTime();
+			fileDao = new FileDaoImpl(Util.adminLogin);
+			if(fileDao.updateFile(file)){
+				response.sendRedirect("jsp/FileView.jsp?path="+file.getChemin());
+			}
 		}else{
 			//6. if null, go to error page
 			Util.dispatcherToErrorPage("Sorry, you haven't right to view this file.", request, response, this);

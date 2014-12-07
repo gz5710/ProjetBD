@@ -58,7 +58,7 @@ public class NewFile extends HttpServlet {
                 for(FileItem item : multiparts){
                     if(!item.isFormField()){
                         String name = new File(item.getName()).getName();
-                        chemin = Util.UPLOAD_DIRECTORY + File.separator + name;
+                        chemin = getServletContext().getRealPath("/") + Util.UPLOAD_DIRECTORY + File.separator + name;
                         item.write(new File(chemin));
                     }else{
                     	String fieldname = item.getFieldName();
@@ -87,6 +87,7 @@ public class NewFile extends HttpServlet {
                 	Util.dispatcherToErrorPage("Failure in saving in database.", request, response, this);
                 }
             } catch (Exception ex) {
+            	ex.printStackTrace();
                Util.dispatcherToErrorPage("File Upload Failed due to " + ex, request, response, this);
             }
         }else{

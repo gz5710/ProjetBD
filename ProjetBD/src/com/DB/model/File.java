@@ -191,4 +191,8 @@ public class File implements Comparator<File> {
 		return o1.getVu() - o2.getVu();
 	}
 	
+	public void readOneMoreTime(){
+		this.Vu++;
+	}
+	
 }

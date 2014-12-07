@@ -77,7 +77,8 @@ public class FileDaoImpl implements FileDao {
 				+ "Autheur= ? ,"
 				+ "Descriptions= ? ,"
 				+ "Tag= ? , "
-				+ "Type_File= ? "
+				+ "Type_File= ? ,"
+				+ "Vu= ? "
 				+ "WHERE Id= ? ;";
 		PreparedStatement ps = null;
 		try {
@@ -87,7 +88,8 @@ public class FileDaoImpl implements FileDao {
 			ps.setString(3, file.getDescription());
 			ps.setString(4, file.getTag_View().getViewName());
 			ps.setString(5, file.getType_File());
-			ps.setInt(6, file.getId());
+			ps.setInt(6, file.getVu());
+			ps.setInt(7, file.getId());
 			dbhelper.execSQL(ps);
 			return true;
 		} catch (Exception e) {
@@ -291,6 +293,33 @@ public class FileDaoImpl implements FileDao {
 				e.printStackTrace();
 				return null;
 			}
+		}
+	}
+	@Override
+	public List<File> getAllFilesInView(View view) {
+		// TODO Auto-generated method stub
+		String sql = "Select * From " + view.getViewName();
+		try {
+			ResultSet rs = dbhelper.query(sql);
+			List<File> files = new ArrayList<File>();
+			while(rs.next()){
+				File file = new File();
+				file.setId(rs.getInt("Id"));
+				file.setNom(rs.getString("Nom"));
+				file.setChemin(rs.getString("Chemin"));
+				file.setAutheur(rs.getString("Autheur"));
+				file.setDate_Pub(rs.getDate("Date_Pub"));
+				file.setDescription(rs.getString("Descriptions"));
+				file.setTag_View(new View(rs.getString("Tag")));
+				file.setVu(rs.getInt("Vu"));
+				file.setType_File(rs.getString("Type_File"));
+				files.add(file);
+			}
+			return files;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
 		}
 	}
 

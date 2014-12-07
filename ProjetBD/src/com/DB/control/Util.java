@@ -13,7 +13,7 @@ import com.DB.model.Login;
 public class Util {
 	
 	public final static Login adminLogin = new Login("sa", "5710640");
-	public final static String UPLOAD_DIRECTORY = "E:\\Code\\Java Learning\\M2 Codes\\ProjetBD\\WebContent\\dossier";
+	public final static String UPLOAD_DIRECTORY = "\\dossier";
 	
 	public static void dispatcherToErrorPage(String ErrMsg, HttpServletRequest request, HttpServletResponse response, HttpServlet servlet)
 	{

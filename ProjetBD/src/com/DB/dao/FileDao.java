@@ -21,6 +21,7 @@ public interface FileDao {
 	public File getFileById(int id);
 	public File getFileInViews(List<View> views, int id);
 	public List<File> getAllFiles();
+	public List<File> getAllFilesInView(View view);
 	public List<File> searchFilesByMultiCritere(MultiCritere mc);
 	public List<String> getAllFileTypes();
 	public List<String> getAllAuthors();

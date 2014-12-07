@@ -46,6 +46,7 @@ public class EditFile extends HttpServlet {
 		String descriptions = request.getParameter("descriptions");
 		String fileGroup = request.getParameter("filegroup");
 		String fileType = request.getParameter("filetype");
+		int vu = Integer.valueOf(request.getParameter("vu"));
 		//2. build an object of file
 		File file = new File();
 		file.setId(id);
@@ -54,6 +55,7 @@ public class EditFile extends HttpServlet {
 		file.setDescription(descriptions);
 		file.setTag_View(new View(fileGroup));
 		file.setType_File(fileType);
+		file.setVu(vu);
 		//3. update this file record
 		FileDao fileDao = new FileDaoImpl(Util.adminLogin);
 		if(fileDao.updateFile(file))

@@ -80,10 +80,7 @@ public class Inscription extends HttpServlet {
 		{
 			//persist in database
 			userDao.addUser(user);			
-			//persist in session
-			HttpSession session = request.getSession(true);
-			session.setAttribute("User", user);
-			Util.dispatcherToPage("/jsp/SuccessInscription.jsp", request, response, this);
+			response.sendRedirect("jsp/SuccessInscription.jsp");
 		}else{
 			Util.dispatcherToErrorPage("Sorry, this username is used !", request, response, this);
 			System.out.println("Test");

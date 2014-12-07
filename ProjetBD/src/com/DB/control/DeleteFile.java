@@ -52,7 +52,7 @@ public class DeleteFile extends HttpServlet {
 					Util.dispatcherToErrorPage("Failed to delete logical file in database.", request, response, this);
 				}
 			}else{
-				Util.dispatcherToErrorPage("Failed to delete physic file.", request, response, this);				
+				Util.dispatcherToErrorPage("Failed to delete file physically.", request, response, this);				
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

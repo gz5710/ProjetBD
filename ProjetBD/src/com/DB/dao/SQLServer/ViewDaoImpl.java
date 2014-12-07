@@ -106,7 +106,8 @@ public class ViewDaoImpl implements ViewDao {
 	@Override
 	public boolean deleteView(String viewname) {
 		// TODO Auto-generated method stub
-		String sql = "DROP VIEW " + viewname;
+		String sql = "DROP VIEW " + viewname + "; \n"
+				+ " Delete Files  WHERE  Tag = '" + viewname + "'";
 		try {
 			dbhelper.execSQL(sql);
 			return true;
