@@ -124,8 +124,6 @@
 <%
 	ViewDao viewDao = new ViewDaoImpl(curUser.getLogin());
 	List<View> views = viewDao.getAllViews();
-	if(views.size()!=0)
-	{
 %>
 <div class="row">
     <div class="box col-md-12">
@@ -148,10 +146,12 @@
 		<button type="submit" class="btn btn-primary" >
 	    	<i class="glyphicon glyphicon-plus icon-white"></i> New
 	    </button>
-	</form>
-    
-    
+	</form>   
     <div class="clearfix"></div><br>
+    <%
+	if(views.size()!=0)
+	{
+	%>
 <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
 	<thead>
     <tr>
@@ -184,10 +184,6 @@
 %>
 	</tbody>
 </table>
-                </div>
-            </div>
-        </div>
-        <!--/span-->
 		<%
 	}else{
 		%>
@@ -195,6 +191,10 @@
 		<%
 	}
 %>    
+                </div>
+            </div>
+        </div>
+        <!--/span-->
 
     <hr>
 
