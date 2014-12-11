@@ -40,7 +40,7 @@
         
     <div class="row">
         <div class="col-md-12 center login-header">
-            <h2>Welcome to ProjetBD</h2>
+            <h2>Welcome to Personal Cloud</h2>
         </div>
         <!--/span-->
     </div><!--/row-->
