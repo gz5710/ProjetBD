@@ -142,6 +142,13 @@
     </div>
     <div class="box-content">
     <div class="alert alert-info">Following is the user list.</div>
+    
+    <form action="/ProjetBD/NewUserChart" method="post">
+    	<button type="submit" class="btn btn-primary" >
+	    	<i class="glyphicon glyphicon-list-alt icon-white"></i> Generate Charts
+	    </button>
+    </form>    
+    <div class="clearfix"></div><br>
 <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
 	<thead>
     <tr>

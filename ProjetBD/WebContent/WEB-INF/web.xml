@@ -164,4 +164,24 @@
     <servlet-name>DisplayFile</servlet-name>
     <url-pattern>/DisplayFile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewFileCharts</display-name>
+    <servlet-name>NewFileCharts</servlet-name>
+    <servlet-class>com.DB.control.NewFileCharts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewFileCharts</servlet-name>
+    <url-pattern>/NewFileCharts</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewUserChart</display-name>
+    <servlet-name>NewUserChart</servlet-name>
+    <servlet-class>com.DB.control.NewUserChart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewUserChart</servlet-name>
+    <url-pattern>/NewUserChart</url-pattern>
+  </servlet-mapping>
 </web-app>

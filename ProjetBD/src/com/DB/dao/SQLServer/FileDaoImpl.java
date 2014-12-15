@@ -7,7 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.DB.dao.FileDao;
 import com.DB.model.File;
@@ -316,6 +318,57 @@ public class FileDaoImpl implements FileDao {
 				files.add(file);
 			}
 			return files;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public Map<String, Integer> getChartFileType() {
+		// TODO Auto-generated method stub
+		String sql = "select Type_File, sum(Vu) as data from Files group by Type_File";
+		try {
+			ResultSet rs = dbhelper.query(sql);
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			while(rs.next()){
+				map.put(rs.getString("Type_File"), rs.getInt("data"));
+			}
+			return map;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public Map<String, Integer> getChartFileGroup() {
+		// TODO Auto-generated method stub
+		String sql = "select Tag, sum(Vu) as data from Files group by Tag";
+		try {
+			ResultSet rs = dbhelper.query(sql);
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			while(rs.next()){
+				map.put(rs.getString("Tag"), rs.getInt("data"));
+			}
+			return map;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public Map<String, Integer> getChartFileView() {
+		// TODO Auto-generated method stub
+		String sql = "select Nom, Vu as data from Files";
+		try {
+			ResultSet rs = dbhelper.query(sql);
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			while(rs.next()){
+				map.put(rs.getString("Nom"), rs.getInt("data"));
+			}
+			return map;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

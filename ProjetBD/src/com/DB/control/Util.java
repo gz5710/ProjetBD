@@ -14,6 +14,12 @@ public class Util {
 	
 	public final static Login adminLogin = new Login("sa", "5710640");
 	public final static String UPLOAD_DIRECTORY = "\\dossier";
+	public final static String CHART_FILETYPE_PATH = "charts\\filetype.jpg";
+	public final static String CHART_FILEGROUP_PATH = "charts\\filegroup.jpg";
+	public final static String CHART_FILEVIEW_PATH = "charts\\fileview.jpg";
+	public final static String CHART_USER_PATH = "charts\\user.jpg";
+	public final static int chart_Width = 1000;
+	public final static int chart_Height = 500;
 	
 	public static void dispatcherToErrorPage(String ErrMsg, HttpServletRequest request, HttpServletResponse response, HttpServlet servlet)
 	{

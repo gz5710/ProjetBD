@@ -145,9 +145,15 @@
     </div>
     <div class="box-content">
     <div class="alert alert-info">Following is the file list.</div>
-    <button type="button" onclick="goToCreateNewPage()" class="btn btn-primary" >
-    	<i class="glyphicon glyphicon-plus icon-white"></i> New
-    </button>
+    
+    <form action="/ProjetBD/NewFileCharts" method="post">
+	    <button type="button" onclick="goToCreateNewPage()" class="btn btn-primary" >
+	    	<i class="glyphicon glyphicon-plus icon-white"></i> New
+	    </button>
+    	<button type="submit" class="btn btn-primary" >
+	    	<i class="glyphicon glyphicon-list-alt icon-white"></i> Generate Charts
+	    </button>
+    </form>
     <div class="clearfix"></div><br>
 <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
 	<thead>

@@ -4,6 +4,7 @@
 package com.DB.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.DB.model.File;
 import com.DB.model.MultiCritere;
@@ -25,4 +26,7 @@ public interface FileDao {
 	public List<File> searchFilesByMultiCritere(MultiCritere mc);
 	public List<String> getAllFileTypes();
 	public List<String> getAllAuthors();
+	public Map<String, Integer> getChartFileType();
+	public Map<String, Integer> getChartFileGroup();
+	public Map<String, Integer> getChartFileView();
 }

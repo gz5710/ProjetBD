@@ -3,9 +3,12 @@
  */
 package com.DB.dao.SQLServer;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.DB.dao.LogDao;
 import com.DB.model.Login;
@@ -76,6 +79,24 @@ public class LogDaoImpl implements LogDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return 0;
+		}
+	}
+
+	@Override
+	public Map<Date, Integer> getChartLog() {
+		// TODO Auto-generated method stub
+		String sql = "select Time_Login, COUNT(Time_Login) as data from Log group by Time_Login";
+		try {
+			ResultSet rs = dbhelper.query(sql);
+			Map<Date, Integer> map = new HashMap<Date, Integer>();
+			while(rs.next()){
+				map.put(rs.getDate("Time_Login"), rs.getInt("data"));
+			}
+			return map;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
 		}
 	}
 
